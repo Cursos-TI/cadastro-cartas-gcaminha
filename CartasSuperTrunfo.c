@@ -8,7 +8,7 @@
 int main() {
     char e1, e2, cod1[4], cod2[4], cidade1[10], cidade2[10];
     int pop1, pop2, pt1, pt2;
-    float a1, a2, pib1, pib2, dp1, dp2, ppc1, ppc2;
+    float a1, a2, pib1, pib2, dp1, dp2, ppc1, ppc2, sp1, sp2;
     
     //Inserindo dados da Carta 1:
     printf("Digite a letra que representa o estado da primeira carta(de A ate H): ");
@@ -52,7 +52,12 @@ int main() {
    
    ppc1 = (float)pib1/pop1;
    ppc2 = (float)pib2/pop2;   
-    
+   
+   //Calculo dos Super Poderes
+   
+   sp1 = (float)pop1 + a1 + pib1 + pt1 + ppc1 + (1/dp1);
+   sp2 = (float)pop2 + a2 + pib2 + pt2 + ppc2 + (1/dp2);
+   
   //Carta 1:
   printf("\nCarta 1\n");
   printf("Estado: %c\n", e1);
@@ -64,6 +69,7 @@ int main() {
   printf("Numero de Pontos Turisticos: %d\n", pt1);
   printf("Densidade Populacional: %.2f hab/km2\n", dp1);
   printf("PIB per Capita: %.2f reais\n", ppc1);
+  printf("Super Poder: %.2f\n", sp1);
   
   //Carta 2:
   printf("\nCarta 2\n");
@@ -76,6 +82,18 @@ int main() {
   printf("Numero de Pontos Turisticos: %d\n", pt2);
   printf("Densidade Populacional: %.2f hab/km2\n", dp2);
   printf("PIB per Capita: %.2f reais\n", ppc2);
+  printf("Super Poder: %.2f\n", sp2);
+  
+  //Comparacoes
+  
+  printf("\n-- Comparacao de Cartas --\n");
+  printf("Populacao: %d\n", pop1 > pop2);
+  printf("Area: %d\n", a1 > a2);
+  printf("PIB: %d\n", pib1 > pib2);
+  printf("Pontos turisticos: %d\n", pt1 > pt2);
+  printf("Densidade Populacional: %d\n", dp1 < dp2);
+  printf("PIB per Capita: %d\n", ppc1 > ppc2);
+  printf("Super Poder: %d\n", sp1 > sp2);
   
   printf("\nPressione Enter para sair...");
   getchar();  // consome o '\n' que sobrou
